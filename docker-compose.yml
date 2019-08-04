@@ -1,0 +1,13 @@
+version: '3.3'
+services:
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_DATABASE: 'course_selection_db'
+      MYSQL_USER: 'yaer'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./mysql-db:/var/lib/mysql
