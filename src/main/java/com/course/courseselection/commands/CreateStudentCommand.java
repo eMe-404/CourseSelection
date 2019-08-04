@@ -4,17 +4,17 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 public class CreateStudentCommand {
     @NotBlank(message = "name can't be blank")
     private String name;
 
-    @Min(value = 6, message = "password length cant less then 6")
+    @Size(min = 6, message = "password length cant less then 6")
     private String password;
 
-    @Email
+    @Email(message = "email should be valid")
     private String email;
 
     @JsonCreator

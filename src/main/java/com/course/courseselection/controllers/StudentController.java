@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
 import java.net.URI;
 
 @RestController
@@ -21,7 +22,7 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Integer> create(@RequestBody CreateStudentCommand createStudentCommand) {
+    public ResponseEntity<Integer> create(@Valid @RequestBody CreateStudentCommand createStudentCommand) {
         Integer id = studentService.create(createStudentCommand);
         URI uri = URI.create(String.format("/students/%d", id));
         return ResponseEntity.created(uri).build();
