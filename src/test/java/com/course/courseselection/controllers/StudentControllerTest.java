@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -20,8 +21,9 @@ import static org.springframework.http.HttpStatus.CREATED;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = RANDOM_PORT)
+@ActiveProfiles(value = "test")
 public class StudentControllerTest {
-    private static final int BEGIN_INDEX_OF_STUDENT_ID = 11;
+    private static final int BEGIN_INDEX_OF_STUDENT_ID = 10;
 
     @Autowired
     private WebApplicationContext webApplicationContext;
