@@ -12,9 +12,11 @@ public class CreateStudentCommand {
     private String name;
 
     @Size(min = 6, message = "password length cant less then 6")
+    @NotBlank(message = "password can't be blank")
     private String password;
 
     @Email(message = "email should be valid")
+    @NotBlank(message = "email can't be blank")
     private String email;
 
     @JsonCreator
